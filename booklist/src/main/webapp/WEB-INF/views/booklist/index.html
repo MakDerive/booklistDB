@@ -1,0 +1,56 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Books List</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h1>Books List</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Author</th>
+    <th>Price</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  
+  <tr th:each="book : ${books}">
+    <td th:text="${book.getId()}">8</td>
+    <td><a th:href="@{/booklist/{id}(id=${book.getId()})}" th:text="${book.getName()}">Test Book</a></td>
+    <td th:text="${book.getAuthor()}">Test Author</td>
+    <td th:text="${book.getPrice()}">300.00</td>
+    <td><a th:href="@{/booklist/{id}/edit(id=${book.getId()})}">Edit</a></td>
+    <td>
+    	<form th:method="DELETE" th:action="@{/booklist/{id}(id=${book.getId()})}">
+    		<input type="submit" value="delete">
+    	</form>
+    </td>
+  </tr>
+</table>
+
+<h2>Add a Book</h2>
+<form th:method="POST">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name" value=""><br>
+  <label for="author">Author:</label><br>
+  <input type="text" id="author" name="author" value=""><br>
+  <label for="price">Price:</label><br>
+  <input type="number" id="price" name="price" value="0"><br><br>
+  <input type="submit" value="Add Book">
+</form>
+
+</body>
+</html>

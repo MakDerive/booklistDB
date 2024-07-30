@@ -1,0 +1,10 @@
+CREATE TABLE Book (
+	id int,
+	name varchar,
+	author varchar,
+	price int
+)
+
+INSERT INTO Book (id,name,author,price) VALUES (1,'Idiot','Dostoevsky',5)
+
+SELECT * FROM Book

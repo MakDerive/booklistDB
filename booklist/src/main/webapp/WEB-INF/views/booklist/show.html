@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 th:text="'Name:'+ ${book.getName()}">name</h1>
+	<h1 th:text="'Author:'+ ${book.getAuthor()}">name</h1>
+	<h1 th:text="'Price:' + ${book.getPrice()}">name</h1>
+	
+	<a th:href="#">Edit</a>
+	<a th:href="#">Delete</a>
+</body>
+</html>
